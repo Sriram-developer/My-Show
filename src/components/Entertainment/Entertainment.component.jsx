@@ -54,15 +54,14 @@ const settings = {
 },
 ],
 };
+ 
     return (<>
    
     <Slider {...settings}>
        { 
        EntertainmentImages.map((image) => (
            <EntertainmentCard src={image}/>
-       ))
-
-       }
+       )) }
     </Slider>
     
     </>);
