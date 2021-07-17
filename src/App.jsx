@@ -3,13 +3,18 @@ import {Route} from "react-router-dom";
 //HOC
 import DefaultHOC from "./HOC/Default.HOC";
 
-function Name() {
-  return <h1>hello </h1>
-}
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// pages
+import HomePage from "./pages/Home.page";
+
+
 
 function App() {
   return ( <>
-   <DefaultHOC path= "/" exact component={Name}/>
+   <DefaultHOC path= "/" exact component={HomePage}/>
   </>);
 }
 
