@@ -44,31 +44,52 @@ export const Premier = () => {
  {
     src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
     alt:"Die",
-    title:"The Dead Don't Died",
+    title:"The Dead Don't Die",
     subtitle:"english",
    },
    {
     src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
     alt:"Die",
-    title:"The Dead Don't Died",
+    title:"The Dead Don't Die",
     subtitle:"english",
 },
 {
     src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
     alt:"Die",
-    title:"The Dead Don't Died",
+    title:"The Dead Don't Die",
     subtitle:"english",
 },
 {
     src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
     alt:"Die",
-    title:"The Dead Don't Died",
+    title:"The Dead Don't Die",
     subtitle:"english",
 },
 {
     src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
     alt:"Die",
-    title:"The Dead Don't Died",
+    title:"The Dead Don't Die",
+    subtitle:"english",
+},
+
+{
+    src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
+    alt:"Die",
+    title:"The Dead Don't Die",
+    subtitle:"english",
+},
+
+{
+    src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
+    alt:"Die",
+    title:"The Dead Don't Die",
+    subtitle:"english",
+},
+
+{
+    src:"https://assets.mubicdn.net/images/notebook/post_images/28127/images-w1400.jpg?1558009751",
+    alt:"Die",
+    title:"The Dead Don't Die",
     subtitle:"english",
 },
 
@@ -76,9 +97,13 @@ export const Premier = () => {
 
     return (
         <>
+        <div className="flex  flex-col items-start ">
+            <h3 className="text-white text-xl font-bold">Premiers</h3>
+            <p className="text-white text-sm">Brand new release every friday</p>
+        </div>
            <Slider {...settings}>
                {PremierImages.map((image) =>( 
-               <Poster {...image}/>
+               <Poster {...image} isDark/>
                
                ))}
                </Slider> 
