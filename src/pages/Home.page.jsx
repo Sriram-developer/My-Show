@@ -9,9 +9,9 @@ import React from "react";
 
 const HomePage = () =>{
   return (<>
-  <div className="flex flex-col gap-10">
+  <div className="flex flex-col gap-10 md:my-4">
    <div className="container mx-auto px-4">
-       <h1 className="text-2xl font-bold text-gray-800 my-3">The Best of Entertainment</h1>
+       <h1 className="text-2xl font-bold text-gray-800 my-3" style={{paddingTop:"12px"}}>The Best of Entertainment</h1>
     <EntertainmentCardSlider/>
     </div>
 
