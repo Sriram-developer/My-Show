@@ -10,7 +10,7 @@ const NavSm = () => {
                
             </div>
             <div className="w-8 h-8">
-                <BiShareAlt className="w-full h-full text-gray-400"/>
+                <BiShareAlt className="w-full h-full"/>
             </div>
         </div>
         </>
@@ -45,9 +45,9 @@ const NavLg = () => {
 
 const MovieNavbar = () => {
     return ( <>
-     <nav className=" absoulte lg:bg-msm-700 p-4">
+     <nav className=" absolute  inset-x-0  z-30  bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-msm-700 p-4">
          <div className="md:hidden">{/* For mobile devices*/}<NavSm/></div>
-         <div className="hidden md:flex lg:hidden">{/* For medium devices*/}<NavSm/></div>
+         <div className="hidden md:block lg:hidden">{/* For medium devices*/}<NavSm/></div>
          <div className="hidden w-full lg:flex">{/* For Large devices*/}<NavLg/></div>
      </nav>
      </>);
