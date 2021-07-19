@@ -4,8 +4,52 @@ import {FaCcVisa,FaCcApplePay} from "react-icons/fa";
 // Component
 import MovieHero from "../components/MovieHero/MovieHero.component";
 import Cast from "../components/Cast/Cast.component";
+import PosterSlider from "../components/PosterSlider/PosterSlider.component";
+
+// Config
+import TempPosters from "../config/TempPosters.config";
+
 
 const Movie = () => {
+  
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow :4,
+    slidesToScroll:4,
+    initialSlide: 0,
+    responsive: [{
+         breakpoint:1024,
+         settings:{
+             slidesToShow: 3,
+             slidesToScroll: 3,
+             infinite:true,
+         },
+    },
+
+    {
+        breakpoint:600,
+        settings:{
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide:2,
+        },
+   },
+
+
+   {
+    breakpoint:480,
+    settings:{
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    },
+},
+],
+};
+
+
+
+
     return (
         <>
           <MovieHero/>
@@ -21,7 +65,7 @@ const Movie = () => {
             </div>
 
             <div className="my-8">
-              <h1 className="text-gray-800 font-bold  text-2xl mb-3">Appicable offers</h1>
+              <h1 className="text-gray-800 font-bold  text-2xl mb-3">Applicable offers</h1>
 
               <div className="flex flex-col gap-3 lg:flex-row">
 
@@ -50,18 +94,32 @@ const Movie = () => {
               </div>
             </div>
              
-          <div>
-              <div className="flex flex-wrap gap-4">
+            <div className="my-8">
+              <hr/>
+            </div>
+          <div className="my-8">
+          <h2 className="text-gray-800 font-bold  text-2xl mb-4">Cast & Crew </h2>
+              <div className="flex flex-wrap gap-4"> 
               <div>
                 <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
               </div>
               <div>
-                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
+                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/ben-affleck-292-12-09-2017-05-12-16.jpg"  castName="Ben Affleck " role="Batman"/>
               </div>
               <div>
-                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
+                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/gal-gadot-11088-17-10-2017-11-45-36.jpg" castName="Gal Gadot" role="Wonder Women" />
               </div>
               </div>
+            </div>
+            <div className="my-8">
+              <hr/>
+            </div>
+            <div className="my-8">
+            <PosterSlider config={settings} images={TempPosters} title="You Might Also Like" isDark={false}/>
+            <div className="my-8">
+              <hr/>
+            </div>
+            <PosterSlider config={settings} images={TempPosters} title="BMS XCLUSIVE" isDark={false}/>
             </div>
           </div>
         </>
