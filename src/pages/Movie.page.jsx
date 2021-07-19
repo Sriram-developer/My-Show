@@ -3,6 +3,7 @@ import {FaCcVisa,FaCcApplePay} from "react-icons/fa";
 
 // Component
 import MovieHero from "../components/MovieHero/MovieHero.component";
+import Cast from "../components/Cast/Cast.component";
 
 const Movie = () => {
     return (
@@ -46,6 +47,20 @@ const Movie = () => {
                </div>
                </div>
               
+              </div>
+            </div>
+             
+          <div>
+              <div className="flex flex-wrap gap-4">
+              <div>
+                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
+              </div>
+              <div>
+                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
+              </div>
+              <div>
+                <Cast image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/henry-cavill-23964-04-05-2020-04-25-14.jpg" castName="Henry Cavil" role="Superman"/>
+              </div>
               </div>
             </div>
           </div>
