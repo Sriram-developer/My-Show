@@ -1,10 +1,21 @@
-import React from "react"
+import React,{useState, useEffect}from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 // Component
 import { NextArrow,PrevArrow } from "./Arrows.component";
 
 const HeroCarousal = () => {
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const requestNowPlayingMovies = async () => {
+            const getImages = await axios.get("/movie/now_playing");
+            setImages(getImages.data.results);
+        };
+        requestNowPlayingMovies();
+    }, []);
 
 
  const settingsLG ={arrow: true, 
@@ -29,15 +40,6 @@ const settings = {
     prevArrow:<PrevArrow/>,
   };
   
-  const images = ["https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  "https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  "https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  "https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  "https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  "https://www.eastcoastdaily.in/wp-content/uploads/2021/05/3-2.jpg",
-  
-];
-  
 
   return (<>
   
@@ -46,7 +48,7 @@ const settings = {
       {
           images.map((image) =>(
               <div className="w-full h-56 md:h-80 py-3">
-                  <img src={image} alt="test"className="w-full h-full"/>
+                  <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="test"className="w-full h-full"/>
               </div>
           ))
       }
@@ -57,7 +59,7 @@ const settings = {
       {
           images.map((image) =>(
               <div className="w-full h-96 px-2 py-3">
-                  <img src={image} alt="test"className="w-full h-full rounded-md"/>
+                  <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="test"className="w-full h-full rounded-md"/>
               </div>
           ))
       }

@@ -8,7 +8,7 @@ import Poster from "../Poster/Poster.component";
 // Config
 import PosterCarousalSettings from "../../config/PosterCarousel.config";
 
-export const PosterSlider = (props) => {
+ const PosterSlider = (props) => {
     const sliderConfig = props.config ? props.config : PosterCarousalSettings;
     return (
        
