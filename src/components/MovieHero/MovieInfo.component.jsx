@@ -26,7 +26,7 @@ const MovieInfo = () => {
                     <h4>{(movie.runtime / 60).toFixed(2)} h &bull; {genres}&bull; 16+</h4>
 
                 </div>
-                <div className="flex items-center gap-3 md:px-4 md:w-screen lg:w-full ">
+                <div className="flex items-center gap-3 md:px-4 mx-2 md:w-screen lg:w-full ">
                     <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Rent ₹149</button>
                     <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Buy ₹149</button>
                 </div>
