@@ -1,15 +1,34 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
+
+// Components
+import PaymentModal from "../PaymentModel/Payment.component";
 
 // context
 import { MovieContext } from "../../context/movie.context";
 
 const MovieInfo = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [price, setPrice] = useState(0);
+
     const {movie} = useContext(MovieContext);
      // optional chaining
     const genres = movie.genres?.map(({name}) => name).join(",");
 
+    const rentMovies = () => {
+        setIsOpen(true);
+        setPrice(149);
+    };
+
+
+    const buyMovies = () => {
+        setIsOpen(true);
+        setPrice(399);
+    };
+
+
     return (
         <>
+           <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price}/>
             <div className="flex flex-col gap-3 lg:gap-8">
                 <div className="flex items-center gap-3 md:px-4">
                     <div className="w-40 h-8">
@@ -27,8 +46,8 @@ const MovieInfo = () => {
 
                 </div>
                 <div className="flex items-center gap-3 md:px-4 mx-2 md:w-screen lg:w-full ">
-                    <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Rent ₹149</button>
-                    <button className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Buy ₹149</button>
+                    <button onClick={rentMovies} className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Rent ₹149</button>
+                    <button onClick={buyMovies}  className="bg-red-600 w-full py-3 text-white font-semibold rounded-lg">Buy ₹399</button>
                 </div>
               </div>
             </div>

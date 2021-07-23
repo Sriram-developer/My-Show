@@ -20,6 +20,9 @@ const Movie = () => {
   const {id} = useParams();
   const {movie} = useContext(MovieContext);
   const [cast, setCast] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
+  const [recommended, setRecommended] = useState([]);
+
 
   useEffect(() => {
     const requestCast = async() => {
@@ -27,28 +30,28 @@ const Movie = () => {
       setCast(getCast.data.cast);
     };
     requestCast();
-  },[]);
+  },[id]);
 
   useEffect(() => {
-    const requestTopRatedMovies = async () => {
-       const getTopRatedMovies = await axios.get("/movie/top_rated");
-       setTopRatedMovies(getTopRatedMovies.data.results);
+    const requestSimilarMovies = async () => {
+       const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+       setSimilarMovies(getSimilarMovies.data.results);
     };
 
-    requestTopRatedMovies();
+    requestSimilarMovies();
 
-  }, []);
+  }, [id]);
 
 
   useEffect(() => {
-    const requestTopRatedMovies = async () => {
-       const getTopRatedMovies = await axios.get("/movie/top_rated");
-       setTopRatedMovies(getTopRatedMovies.data.results);
+    const requestRecommendedMovies = async () => {
+       const getRecommendedMovies = await axios.get(`/movie/${id}/recommendations`);
+       setRecommended(getRecommendedMovies.data.results);
     };
 
-    requestTopRatedMovies();
+    requestRecommendedMovies();
 
-  }, []);
+  }, [id]);
 
   
   const settings = {
@@ -182,11 +185,11 @@ const settingsCast = {
               <hr/>
             </div>
             <div className="my-8">
-            <PosterSlider config={settings} images={TempPosters} title="You Might Also Like" isDark={false}/>
+            <PosterSlider config={settings} images={similarMovies} title="You Might Also Like" isDark={false}/>
             <div className="my-8">
               <hr/>
             </div>
-            <PosterSlider config={settings} images={TempPosters} title="BMS XCLUSIVE" isDark={false}/>
+            <PosterSlider config={settings} images={recommended} title="BMS XCLUSIVE" isDark={false}/>
             </div>
           </div>
         </>
